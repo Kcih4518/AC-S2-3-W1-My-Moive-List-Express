@@ -5,6 +5,15 @@ const app = express()
 // Define server related variables
 const port = 3000
 
+// require express-handlebars here
+const exphdbs = require('express-handlebars')
+
+// setting template engine
+// Param 1 : The name of the template engine
+// Param 2 : Default layout file name 'main'
+app.engine('handlebars', exphdbs({ defaultLayout: 'main' }))
+app.set('view engine', 'handlebars')
+
 // Handle request and response here
 app.get('/', (req, res) => {
   res.send('This is my movie list built with Express')
