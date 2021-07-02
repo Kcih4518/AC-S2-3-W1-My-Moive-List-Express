@@ -26,6 +26,13 @@ app.get('/', (req, res) => {
   res.render('index', { movies: movieList.results })
 })
 
+app.get('/movies/:movie_id', (req, res) => {
+  const movie = movieList.results.find(
+    (movie) => movie.id.toString() === req.params.movie_id
+  )
+  res.render('show', { movie: movie })
+})
+
 // start and listen on the Express server
 app.listen(port, () => {
   console.log(`Express is running on http://localhost:${port}`)
