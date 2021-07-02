@@ -38,7 +38,7 @@ app.get('/search', (req, res) => {
   const movies = movieList.results.filter((movie) => {
     return movie.title.toLocaleLowerCase().includes(keyword.toLocaleLowerCase())
   })
-  res.render('index', { movies: movies })
+  res.render('index', { movies: movies, keyword: keyword })
 })
 // start and listen on the Express server
 app.listen(port, () => {
